@@ -11,7 +11,7 @@ const createBoard = function(size){
   return board;
 }
 
-const stateOfWorld = function(size,inputdata){
+const initialBoard = function(size,inputdata){
   let grid = createBoard(size);
   for(let index = 0; index < size; index++){
     grid[index]=grid[index].map(x=> "D");
@@ -22,4 +22,4 @@ const stateOfWorld = function(size,inputdata){
   return grid;
 }
 
-module.exports = { createBoard, stateOfWorld };
+module.exports = { createBoard, initialBoard };

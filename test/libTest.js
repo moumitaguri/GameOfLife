@@ -1,5 +1,5 @@
 const { equal,deepEqual } = require('assert');
-const { createBoard,stateOfWorld } = require('../src/lib.js');
+const { createBoard,initialBoard } = require('../src/lib.js');
 
 describe( 'createBoard()', function(){
   it( 'should return empty array for size 0', function(){
@@ -11,11 +11,11 @@ describe( 'createBoard()', function(){
   });
 });
 
-describe( 'stateOfWorld()', function(){
+describe( 'initialBoard()', function(){
   it('should return empty array for size 0', function(){
-    deepEqual(stateOfWorld(0,[]),[]);
+    deepEqual(initialBoard(0,[]),[]);
   });
   it('should return an array representing the states for given size :n and inputdata for alive elements',  function(){
-    deepEqual(stateOfWorld(2,[0,1]),[['A','A'],['D','D']]);
+    deepEqual(initialBoard(2,[0,1]),[['A','A'],['D','D']]);
   });
 });
