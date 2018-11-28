@@ -1,5 +1,5 @@
 const { equal,deepEqual } = require('assert');
-const { createBoard,initialBoard } = require('../src/lib.js');
+const {findNeighbours,createBoard,initialBoard } = require('../src/lib.js');
 
 describe( 'createBoard()', function(){
   it( 'should return empty array for size 0', function(){
@@ -17,5 +17,34 @@ describe( 'initialBoard()', function(){
   });
   it('should return an array representing the states for given size :n and inputdata for alive elements',  function(){
     deepEqual(initialBoard(2,[0,1]),[['A','A'],['D','D']]);
+  });
+});
+describe("findNeighbours", function() {
+  describe("for corner cells", function() {
+    it("should return three neighbour cells", function() {
+      let result = [ [ 0, 1 ], [ 1, 0 ], [ 1, 1 ] ];
+      deepEqual(findNeighbours(3,[0,0]),result);
+    });
+  });
+
+  describe("for edge cells", function() {
+    it("should return five neighbour cells", function() {
+      let result = [ [ 0, 0 ], [ 0, 2 ], [ 1, 0 ], [ 1, 1 ], [ 1, 2 ] ];
+      deepEqual(findNeighbours(3,[0,1]), result);
+    });
+  });
+
+  describe("for middle cells", function() {
+    it("should return nine neighbour cells", function() {
+      let result = [ [ 1, 0 ],
+        [ 1, 2 ],
+        [ 0, 0 ],
+        [ 0, 1 ],
+        [ 0, 2 ],
+        [ 2, 0 ],
+        [ 2, 1 ],
+        [ 2, 2 ] ];
+      deepEqual(findNeighbours(3,[1,1]), result);
+    });
   });
 });

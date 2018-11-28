@@ -22,6 +22,7 @@ const initialBoard = function(size,inputdata){
   return board;
 }
 
+
 const findNeighbours = function(size,cell){
   let neighbourCells = [ [cell[0], cell[1]-1], [cell[0],cell[1]+1] ];
 
@@ -34,5 +35,16 @@ const findNeighbours = function(size,cell){
 
   return neighbourCells.filter(filterNeighbours(size));
 }
+const filterNeighbours = function(size) {
+  return function(position) {
+    return position.every(isRealNeighbour(size));
+  }
+}
+const isRealNeighbour = function(size) {
+  return function(index) {
+    return !(index < 0 || index >= size);
+  }
+}
 
-module.exports = { createBoard, initialBoard };
+
+module.exports = { createBoard, initialBoard ,findNeighbours };
