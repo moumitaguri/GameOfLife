@@ -12,14 +12,27 @@ const createBoard = function(size){
 }
 
 const initialBoard = function(size,inputdata){
-  let grid = createBoard(size);
+  let board = createBoard(size);
   for(let index = 0; index < size; index++){
-    grid[index]=grid[index].map(x=> "D");
+    board[index]=board[index].map(x=> "D");
     for(let j = 0; j < inputdata.length; j++){
-      grid[Math.floor(inputdata[j]/size)][inputdata[j]%size]="A";
+      board[Math.floor(inputdata[j]/size)][inputdata[j]%size]="A";
     }
   }
-  return grid;
+  return board;
+}
+
+const findNeighbours = function(size,cell){
+  let neighbourCells = [ [cell[0], cell[1]-1], [cell[0],cell[1]+1] ];
+
+  neighbourCells.push([cell[0]-1, cell[1]-1]);
+  neighbourCells.push([cell[0]-1, cell[1]]);
+  neighbourCells.push([cell[0]-1, cell[1]+1]);
+  neighbourCells.push([cell[0]+1, cell[1]-1]);
+  neighbourCells.push([cell[0]+1, cell[1]]);
+  neighbourCells.push([cell[0]+1, cell[1]+1]);
+
+  return neighbourCells.filter(filterNeighbours(size));
 }
 
 module.exports = { createBoard, initialBoard };
