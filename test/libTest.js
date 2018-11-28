@@ -16,6 +16,6 @@ describe( 'stateOfWorld()', function(){
     deepEqual(stateOfWorld(0,[]),[]);
   });
   it('should return an array representing the states for given size :n and inputdata for alive elements',  function(){
-    deepEqual(stateOfWorld(2,[0,1]),[['A','A'],[2,3]]);
+    deepEqual(stateOfWorld(2,[0,1]),[['A','A'],['D','D']]);
   });
 });

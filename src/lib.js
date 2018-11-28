@@ -14,13 +14,12 @@ const createBoard = function(size){
 const stateOfWorld = function(size,inputdata){
   let grid = createBoard(size);
   for(let index = 0; index < size; index++){
+    grid[index]=grid[index].map(x=> "D");
     for(let j = 0; j < inputdata.length; j++){
-      let position = grid[index].indexOf(inputdata[j])
-      if(position !== -1){
-        grid[index][position] = 'A';
-      }
+      grid[Math.floor(inputdata[j]/size)][inputdata[j]%size]="A";
     }
   }
   return grid;
 }
-module.exports = { createBoard,stateOfWorld };
+
+module.exports = { createBoard, stateOfWorld };
