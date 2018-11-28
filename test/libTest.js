@@ -7,6 +7,6 @@ describe( 'createBoard()', function(){
   });
   it('should return a nXn array for given size :n', function(){
     deepEqual(createBoard(1),[[0]]);
-    deepEqual(createBoard(2),[[0,0],[0,0]]);
+    deepEqual(createBoard(2),[[0,1],[2,3]]);
   });
 });

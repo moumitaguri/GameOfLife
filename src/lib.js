@@ -1,9 +1,13 @@
 const createBoard = function(size){
   let board = [];
+  let count = 0;
   for(let index = 0; index < size; index++){
-    let row = new Array(size).fill(0);
+    let row =  [] ;
+    for(let j = 0; j < size; j++){
+      row.push(count++)
+    } 
     board.push(row);
-  } 
+  }
   return board;
 }
 
