@@ -1,3 +1,8 @@
+const initialGrid = function(length,breadth){
+  let  cells = new Array(breadth).fill(length);
+  return cells.map( x=> new Array(x).fill(0));
+}
+
 const createBoard = function(size){
   let board = [];
   let count = 0;
@@ -47,4 +52,4 @@ const isRealNeighbour = function(size) {
 }
 
 
-module.exports = { createBoard, initialBoard ,findNeighbours };
+module.exports = { initialGrid, createBoard, initialBoard ,findNeighbours };

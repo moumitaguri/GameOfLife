@@ -1,5 +1,15 @@
 const { equal,deepEqual } = require('assert');
-const {findNeighbours,createBoard,initialBoard } = require('../src/lib.js');
+const { initialGrid,findNeighbours,createBoard,initialBoard } = require('../src/lib.js');
+describe('initialGrid()', function(){
+  it('should return an empty array for length: 0 , breadth : 0', function(){
+    deepEqual(initialGrid(0,0),[]);
+  });
+  it('should return a lengthXbreadth array for given length and breadth', function(){
+    deepEqual(initialGrid(1,2),[[0],[0]]);
+    deepEqual(initialGrid(3,2),[[0,0,0],[0,0,0]]);
+  });
+});
+
 
 describe( 'createBoard()', function(){
   it( 'should return empty array for size 0', function(){
