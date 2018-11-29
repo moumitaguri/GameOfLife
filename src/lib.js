@@ -1,4 +1,4 @@
-const initialGrid = function(length,breadth){
+const createGrid = function(length,breadth){
   let  cells = new Array(breadth).fill(length);
   return cells.map( x=> new Array(x).fill(0));
 }
@@ -8,7 +8,7 @@ const makeCellAlive = function(cells,position){
   return cells;
 }
 
-const updateGrid = function(cells,positionsWhereToMakeAlive){
+const initialGrid = function(cells,positionsWhereToMakeAlive){
   return positionsWhereToMakeAlive.reduce(makeCellAlive,cells);
 }
 
@@ -22,4 +22,4 @@ const findNeighbours = function(cell){
   return neighbours.filter((position)=> !(position[0]==cell[0] && position[1] == cell[1]));
 }
 
-module.exports = { initialGrid, updateGrid, findNeighbours };
+module.exports = { createGrid, initialGrid, findNeighbours };
