@@ -12,4 +12,14 @@ const updateGrid = function(cells,positionsWhereToMakeAlive){
   return positionsWhereToMakeAlive.reduce(makeCellAlive,cells);
 }
 
-module.exports = { initialGrid, updateGrid };
+const findNeighbours = function(cell){
+  let array = [-1,0,1]
+  let neighbours = [];
+  array.forEach((row)=>
+    array.forEach((column)=>{
+      neighbours.push([row+cell[0], column+cell[1]]);
+    }))
+  return neighbours.filter((position)=> !(position[0]==cell[0] && position[1] == cell[1]));
+}
+
+module.exports = { initialGrid, updateGrid, findNeighbours };

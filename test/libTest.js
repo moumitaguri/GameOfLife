@@ -1,5 +1,5 @@
 const { equal,deepEqual } = require('assert');
-const { initialGrid, updateGrid,findNeighbours,createBoard,initialBoard } = require('../src/lib.js');
+const { initialGrid, updateGrid,findNeighbours } = require('../src/lib.js');
 describe('initialGrid()', function(){
   it('should return an empty array for length: 0 , breadth : 0', function(){
     deepEqual(initialGrid(0,0),[]);
@@ -18,3 +18,10 @@ describe('updateGrid()', function(){
     deepEqual(updateGrid(initialGrid(3,2),[[0,0],[1,0]]),[[1,0,0],[1,0,0]]);
   });
 });
+
+describe('findNeighbours()', function(){
+  it('should return a array with updated values according to the given positions', function(){
+    deepEqual(findNeighbours([1,1]),[[0,0],[0,1],[0,2],[1,0],[1,2],[2,0],[2,1],[2,2]]);
+  });
+});
+
